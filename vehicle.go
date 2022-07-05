@@ -4,7 +4,6 @@ import (
 	"context"
 	"io"
 	"net"
-	"net/http"
 	"net/url"
 	"os"
 	"time"
@@ -32,7 +31,6 @@ func NewFileVehicle(path string) *FileVehicle {
 	return &FileVehicle{path: path}
 }
 	url  string
-	path string
 }
 
 func (h *HTTPVehicle) Type() types.VehicleType {
@@ -62,7 +60,6 @@ func (h *HTTPVehicle) Read() ([]byte, error) {
 		req.SetBasicAuth(user.Username(), password)
 	}
 
-	req = req.WithContext(ctx)
 
 	transport := &http.Transport{
 		// from http.DefaultTransport
