@@ -9,7 +9,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/Dreamacro/clash/component/dialer"
 	types "github.com/Dreamacro/clash/constant/provider"
 )
 
@@ -32,8 +31,6 @@ func (f *FileVehicle) Read() ([]byte, error) {
 func NewFileVehicle(path string) *FileVehicle {
 	return &FileVehicle{path: path}
 }
-
-type HTTPVehicle struct {
 	url  string
 	path string
 }
